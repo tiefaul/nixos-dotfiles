@@ -4,7 +4,7 @@
   home.homeDirectory = "/home/tyler";
 
   home.packages = [
-    pkgs.nvim
+    pkgs.neovim
     pkgs.python314
   ];
 
