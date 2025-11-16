@@ -17,6 +17,13 @@
         inherit system;
         modules = [ ./systems/nixos-2/configuration.nix ];
       };
+   #  another-host = nixpkgs.lib.nixosSystem {...}
+    };
+    homeConfiguration = {
+     tyler = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-stable.legacyPackages.${system};
+        modules = [ ./homes/tyler/home.nix ];
+      };
     };
   };
 }
