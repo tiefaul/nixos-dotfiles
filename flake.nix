@@ -14,7 +14,7 @@
   in  {
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
-        system = inherit system;
+        system = %{system};
         modules = [ ./systems/nixos-2/configuration.nix ];
       };
     };
