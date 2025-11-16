@@ -17,9 +17,12 @@
         inherit system;
         modules = [ 
           ./systems/nixos-2/configuration.nix
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.tyler = ./homes/tyler/home.nix;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tyler = ./homes/tyler/home.nix;
+          }
         ];
       };
    #  another-host = nixpkgs.lib.nixosSystem {...}
