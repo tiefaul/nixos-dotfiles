@@ -15,15 +15,14 @@
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./systems/nixos-2/configuration.nix ];
+        modules = [ 
+          ./systems/nixos-2/configuration.nix
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.tyler = ./homes/tyler/home.nix;
+        ];
       };
    #  another-host = nixpkgs.lib.nixosSystem {...}
-    };
-    homeConfiguration = {
-     tyler = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-stable.legacyPackages.${system};
-        modules = [ ./homes/tyler/home.nix ];
-      };
     };
   };
 }
