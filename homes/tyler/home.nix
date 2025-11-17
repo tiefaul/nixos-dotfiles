@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  import = [ ./nvimconfig ];
+
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
   home.packages = with pkgs; [
