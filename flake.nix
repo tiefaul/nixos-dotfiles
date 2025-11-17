@@ -15,7 +15,8 @@
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ 
+        modules = [
+	  ./homes/tyler/nvim-config
           ./systems/nixos-2/configuration.nix
           home-manager.nixosModules.home-manager
           {
