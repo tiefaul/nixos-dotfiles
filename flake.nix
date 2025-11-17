@@ -17,13 +17,13 @@
       nixos-2 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-	  nvimConfig = nvimConfig
           ./systems/nixos-2/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.tyler = ./homes/tyler/home.nix;
+	    inherit nvimConfig;
           }
         ];
       };
