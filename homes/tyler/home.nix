@@ -3,11 +3,16 @@
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
 
-  home.packages = [
-    pkgs.neovim
-    pkgs.python314
+  home.packages = with pkgs [
+    python314
   ];
 
+  # Nvim configuration
+  programs.neovim.enable = true;
+  home.file.".config/nvim".source = ./nvim-config/.
+
+  programs.home-manager.enable = true;
+  
   home.stateVersion = "25.05";
 }
 
