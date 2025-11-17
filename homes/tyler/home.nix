@@ -8,7 +8,7 @@
 
   # Nvim configuration
   programs.neovim.enable = true;
-  home.file."test".source = ./nvim-config/.;
+  home.file.".config/nvim".source = ./nvim-config/.;
 
   programs.home-manager.enable = true;
   
