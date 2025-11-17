@@ -13,8 +13,9 @@
     ];
 
     # Nvim configuration
+    inherit nvim-config
     programs.neovim.enable = true;
-    home.file.".config/nvim".source = inherit nvim-config;
+    home.file.".config/nvim".source = nvim-config;
 
     programs.home-manager.enable = true;
   
