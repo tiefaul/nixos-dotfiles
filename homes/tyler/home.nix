@@ -7,7 +7,7 @@
   ];
 
   # Nvim configuration
-  home.file.".config/nvim".source = ./nvim-config/.;
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./nvim-config/.;
   programs.neovim.enable = true;
 
   programs.home-manager.enable = true;
