@@ -10,7 +10,6 @@
   programs.neovim.enable = true;
   home.file.".config/nvim" = {
     source = ./nvim-config/.;
-    enable = true;
   };
 
   programs.home-manager.enable = true;
