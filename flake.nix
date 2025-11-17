@@ -11,7 +11,7 @@
   outputs = { self, nixpkgs, home-manager, nixpkgs-stable,... }@inputs:
   let
     system = "x86_64-linux";
-    nvimConfig = builtins.path { path = ./nvim-config; };
+    nvimConfig = builtins.path { path = ./homes/tyler/nvim-config; };
   in  {
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
