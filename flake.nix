@@ -22,8 +22,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tyler = ./homes/tyler/home.nix;
-	    nvimConfigPath = nvimConfig;
+            home-manager.users.tyler = import ./homes/tyler/home.nix {
+              inherit nvimConfig;
+	    };
           }
         ];
       };

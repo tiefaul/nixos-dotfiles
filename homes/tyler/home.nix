@@ -1,4 +1,4 @@
-{ config, pkgs, nvimConfigPath, ... }: { 
+{ config, pkgs, nvimConfig, ... }: { 
 
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
@@ -8,7 +8,7 @@
 
   # Nvim configuration
   programs.neovim.enable = true;
-  home.file.".config/nvim".source = nvimConfigPath;
+  home.file.".config/nvim".source = nvimConfig;
 
   programs.home-manager.enable = true;
   
