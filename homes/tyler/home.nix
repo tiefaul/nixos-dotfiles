@@ -2,7 +2,7 @@
 
   let
     nvim-config = builtins.path {
-      path = ./nvim-config/;
+      path = ./nvim-config;
       name = "nvim-config";
     };
   in {
@@ -14,7 +14,7 @@
 
     # Nvim configuration
     programs.neovim.enable = true;
-    home.file.".config/nvim".source = nvim-config;
+    home.file.".config/nvim".source = nvim-config/.;
 
     programs.home-manager.enable = true;
   
