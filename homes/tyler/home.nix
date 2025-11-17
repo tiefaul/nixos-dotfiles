@@ -1,4 +1,4 @@
-{ config, pkgs, nvimConfig, ... }: { 
+{ pkgs, nvimConfig, ... }: { 
 
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
