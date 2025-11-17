@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: { 
+{ config, pkgs, ... }: 
  
   let
     nvimConfig = builtins.path { path = ./nvim-config; };
