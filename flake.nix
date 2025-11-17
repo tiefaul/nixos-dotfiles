@@ -11,7 +11,6 @@
   outputs = { self, nixpkgs, home-manager, nixpkgs-stable,... }@inputs:
   let
     system = "x86_64-linux";
-    nvimConfig = builtins.path { path = ./homes/tyler/nvim-config; };
   in  {
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
@@ -22,9 +21,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tyler = import ./homes/tyler/home.nix {
-              inherit nvimConfig;
-	    };
+            home-manager.users.tyler = ./homes/tyler/home.nix 
           }
         ];
       };
