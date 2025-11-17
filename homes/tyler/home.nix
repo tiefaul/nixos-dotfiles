@@ -2,7 +2,7 @@
 
   let
     nvim-config = builtins.path {
-      path = ./nvim-config/.;
+      path = ./nvim-config/;
       name = "nvim-config";
     };
   in {
