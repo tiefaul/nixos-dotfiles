@@ -1,20 +1,17 @@
-{ config, pkgs, ... }: 
- 
-  let
-    nvimConfig = builtins.path { path = ./nvim-config; };
-  in  {
-    home.username = "tyler";
-    home.homeDirectory = "/home/tyler";
-    home.packages = with pkgs; [
-      python314
-    ];
+{ config, pkgs, ... }: { 
 
-    # Nvim configuration
-    programs.neovim.enable = true;
-    home.file.".config/nvim".source = "${nvimConfig}";
+  home.username = "tyler";
+  home.homeDirectory = "/home/tyler";
+  home.packages = with pkgs; [
+    python314
+  ];
 
-    programs.home-manager.enable = true;
+  # Nvim configuration
+  programs.neovim.enable = true;
+  home.file.".config/nvim".source = nvimConfig;
+
+  programs.home-manager.enable = true;
   
-    home.stateVersion = "25.05";
+  home.stateVersion = "25.05";
 }
 
