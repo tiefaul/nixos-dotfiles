@@ -11,13 +11,13 @@
   outputs = { self, nixpkgs, home-manager, nixpkgs-stable,... }@inputs:
   let
     system = "x86_64-linux";
-    nixConfig = nvimConfig = builtins.path { path = ./nvim-config; };
+    nvimConfig = builtins.path { path = ./nvim-config; };
   in  {
     nixosConfigurations = {
       nixos-2 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-	  inherit nixConfig
+	  inherit nvimConfig
           ./systems/nixos-2/configuration.nix
           home-manager.nixosModules.home-manager
           {
