@@ -8,8 +8,8 @@
 
     # Nvim configuration
     programs.neovim.enable = true;
-    nvimConfig = builtins.path { path = ./nvim-config; }
-    home.file.".config/nvim".source = ./nvim-config/.;
+    nvimConfig = builtins.path { path = ./nvim-config; };
+    home.file.".config/nvim".source = nvimConfig;
 
     programs.home-manager.enable = true;
   
