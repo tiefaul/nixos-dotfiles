@@ -11,7 +11,7 @@
 
     # Nvim configuration
     programs.neovim.enable = true;
-    home.file.".config/nvim".source = nvimConfig;
+    home.file.".config/nvim".source = "${nvimConfig}";
 
     programs.home-manager.enable = true;
   
