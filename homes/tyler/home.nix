@@ -1,11 +1,5 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }: { 
 
-  let
-    nvim-config = builtins.path {
-      path = ./nvim-config;
-      name = "nvim-config";
-    };
-  in {
     home.username = "tyler";
     home.homeDirectory = "/home/tyler";
     home.packages = with pkgs; [
@@ -14,7 +8,8 @@
 
     # Nvim configuration
     programs.neovim.enable = true;
-    home.file.".config/nvim".source = nvim-config;
+    nvimConfig = builtins.path { path = ./nvim-config; }
+    home.file.".config/nvim".source = ./nvim-config/.;
 
     programs.home-manager.enable = true;
   
