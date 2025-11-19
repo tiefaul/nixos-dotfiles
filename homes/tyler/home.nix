@@ -10,7 +10,7 @@
   programs.neovim.enable = true;
   home.file.".config/nvim" = { 
     source = ./nvim-config/.;
-    recursive = false;
+    recursive = true;
     };
 
   programs.home-manager.enable = true;
