@@ -21,7 +21,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tyler = ./homes/tyler/home.nix; 
+            home-manager.users.tyler = {
+	      imports = [ ./homes/tyler/home.nix ]
+	    };
           }
         ];
       };
