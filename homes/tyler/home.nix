@@ -8,11 +8,11 @@
 
   # Nvim configuration
   programs.neovim.enable = true;
-  home.file.".config/nvim" = { 
-    source = ./nvim-config/.;
-    recursive = true;
-    };
+  home.file.".config/nvim".source = ./nvim-config/.;
 
+  # TODO: add zsh
+  programs.zsh.enable = true;
+  # Home-Manager
   programs.home-manager.enable = true;
   
   home.stateVersion = "25.05";
