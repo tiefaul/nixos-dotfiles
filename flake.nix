@@ -22,7 +22,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.tyler = {
-	      imports = [ ./homes/tyler/home.nix ./homes/tyler/nvim-config ];
+	      imports = [ ./homes/tyler/home.nix ];
 	    };
           }
         ];
