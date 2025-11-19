@@ -9,7 +9,7 @@
   # Nvim configuration
   programs.neovim.enable = true;
   home.file.".config/nvim" = { 
-    source = ./nvim-config/.;
+    source = homes/tyler/nvim-config/.;
     recursive = true;
     };
 
