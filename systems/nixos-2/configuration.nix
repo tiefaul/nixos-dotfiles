@@ -18,6 +18,41 @@
   networking.hostName = "nixos-2"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+
+  services.nginx = let 
+  webroot = ../../simple-website;
+  in
+  {
+    enable = true;
+    virtualHosts."nginx-demo" = {
+        serverName = "tylerServer";
+
+        # Listen on the configured port (no TLS)
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 80;
+            ssl  = false;
+          }
+        ];
+
+        root = webroot;
+
+        locations."/" = {
+          index = "index.html";
+          extraConfig = ''
+            try_files $uri $uri/ =404;
+          '';
+        };
+
+        # Rough equivalent of your original logging behavior
+        extraConfig = ''
+          access_log /dev/stdout;
+        '';
+      };
+  };
+
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
