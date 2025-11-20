@@ -17,7 +17,7 @@
 
   networking.hostName = "nixos-2"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.firewall.allowedTCPPorts = [80 8080];
 
   services.nginx = let 
   webroot = ../../simple-website;
