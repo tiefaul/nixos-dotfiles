@@ -10,8 +10,24 @@
   programs.neovim.enable = true;
   home.file.".config/nvim".source = ./nvim-config/.;
 
-  # TODO: add zsh
-  programs.zsh.enable = true;
+  # Zsh configuration
+  programs.zsh = {
+    enable = true;
+    autosuggestion = {
+      enable = true;
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+  };
+
+  programs.zsh.oh-my-zsh = {
+    enable = true;
+    theme = "agnoster";
+    plugins = [ "git" ];
+
+  };
+
   # Home-Manager
   programs.home-manager.enable = true;
   

@@ -17,13 +17,13 @@
 
   networking.hostName = "nixos-2"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.firewall.allowedTCPPorts = [ 80 8080 ];
+  # networking.firewall.allowedTCPPorts = [ 80 8080 ];
 
   services.nginx = let 
   webroot = ../../simple-website;
   in
   {
-    enable = true;
+    enable = false;
     virtualHosts."nginx-demo" = {
         # Listen on the configured port (no TLS)
         listen = [
@@ -40,8 +40,6 @@
         location / {
           try_files $uri $uri/ =404;
         }
-        index index.html;
-        access_log /dev/stdout;
         '';
       };
   };
