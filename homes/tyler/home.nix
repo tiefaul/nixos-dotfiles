@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     python314
   ];
-  
+
   imports = [
     ./configurations/nvim/default.nix
     ./configurations/zsh/default.nix

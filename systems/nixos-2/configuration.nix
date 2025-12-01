@@ -76,10 +76,9 @@
     variant = "";
   };
 
-  # Setup packages
+  # Enable zsh to have it set as the login shell.
   programs.zsh.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tyler = {
     isNormalUser = true;
     description = "Tyler";
@@ -94,7 +93,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
   ];
