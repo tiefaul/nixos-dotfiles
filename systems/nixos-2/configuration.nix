@@ -19,7 +19,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.firewall.allowedTCPPorts = [ 80 8080 ];
 
-  services.nginx = let 
+  # Learning how to setup nginx with Matt
+  services.nginx = let
   webroot = ../../simple-website;
   in
   {
@@ -43,7 +44,6 @@
         '';
       };
   };
-
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -82,6 +82,7 @@
     description = "Tyler";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
