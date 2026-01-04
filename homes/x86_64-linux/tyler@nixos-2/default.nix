@@ -6,12 +6,9 @@
     python314
   ];
 
-  imports = [
-    ./configurations/nvim/default.nix
-    ./configurations/zsh/default.nix
-  ];
-
   programs.home-manager.enable = true;
+  tyler-space.nvim.enable = true;
+  tyler-space.zsh.enable = true;
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "24.05";
 }
