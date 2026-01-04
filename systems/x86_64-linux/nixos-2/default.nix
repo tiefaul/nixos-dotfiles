@@ -21,7 +21,7 @@
 
   # Learning how to setup nginx with Matt
   services.nginx = let
-  webroot = ../../simple-website;
+  webroot = ../../../simple-website;
   in
   {
     enable = false;
