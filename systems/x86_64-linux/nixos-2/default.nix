@@ -9,6 +9,12 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  
+  # Set jellyfin file system
+  fileSystems."/media/jellyfin/" = {
+    device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
+    fsType = "ext4";
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;
