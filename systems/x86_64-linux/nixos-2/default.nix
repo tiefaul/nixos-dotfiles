@@ -15,6 +15,13 @@
     device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
     fsType = "ext4";
   };
+  
+  # Modules
+  tyler-space = {
+    services = {
+      jellyfin.enable = true;
+    };
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;

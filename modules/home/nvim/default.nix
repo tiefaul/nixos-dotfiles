@@ -1,6 +1,6 @@
 # nvim configuration
 
-{ pkgs, config, options, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   nvim_config = pkgs.fetchFromGitHub {
     owner = "tiefaul";
