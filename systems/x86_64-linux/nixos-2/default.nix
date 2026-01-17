@@ -16,6 +16,9 @@
     fsType = "ext4";
   };
   
+  # User groups
+  users.groups.media = {};
+
   # Modules
   tyler-space = {
     services = {
