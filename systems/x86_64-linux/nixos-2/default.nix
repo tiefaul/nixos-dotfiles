@@ -11,7 +11,7 @@
     ];
   
   # Set jellyfin file system
-  fileSystems."/media/jellyfin" = {
+  fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
     fsType = "ext4";
   };
