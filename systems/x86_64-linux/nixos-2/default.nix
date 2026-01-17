@@ -21,6 +21,7 @@
     services = {
       jellyfin.enable = true;
       radarr.enable = true;
+      qbittorrent.enable = true;
     };
   };
 
