@@ -20,6 +20,7 @@
   tyler-space = {
     services = {
       jellyfin.enable = true;
+      radarr.enable = true;
     };
   };
 
