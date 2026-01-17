@@ -11,6 +11,8 @@ in
       services.qbittorrent = {
         enable = true;
         openFirewall = true;
+        webuiPort = 8090;
+        group = "media";
       };
     };
   }
