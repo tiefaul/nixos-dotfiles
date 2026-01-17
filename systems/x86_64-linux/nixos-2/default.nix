@@ -22,9 +22,10 @@
   # Modules
   tyler-space = {
     services = {
-      jellyfin.enable = true;
-      radarr.enable = true;
-      qbittorrent.enable = true;
+      jellyfin.enable = true; # port 8096
+      radarr.enable = true; # port 7878
+      qbittorrent.enable = true; # port 8090
+      prowlarr.enable = true; # port 9696
     };
   };
 
