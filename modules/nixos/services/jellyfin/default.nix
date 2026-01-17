@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.tyler-space.services.jellyfin;
 in
@@ -8,6 +8,9 @@ in
     };
 
     config = lib.mkIf cfg.enable {
-      services.jellyfin.enable = true;
-    };
+      services.jellyfin = {
+        enable = true;
+        openFirewall = true;
+      };
+  };
 }
