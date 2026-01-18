@@ -14,6 +14,8 @@
     isNormalUser = true;
     description = "Tyler";
     extraGroups = [ "networkmanager" "wheel" ];
+    # packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   # Set non-boot file system
