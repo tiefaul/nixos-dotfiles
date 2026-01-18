@@ -1,5 +1,3 @@
-# nvim configuration
-
 { config, lib, ... }:
 let
   cfg = config.tyler-space.tyler.nvim;
