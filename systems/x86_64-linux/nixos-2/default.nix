@@ -22,7 +22,7 @@
   # Modules
   tyler-space = {
     services = {
-      jellyfin.enable = true; # port 8096
+      jellyfin.enable = false; # port 8096
     };
   };
 
@@ -112,6 +112,8 @@
     vim
     wget
     git
+    nodejs_24
+    python314
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

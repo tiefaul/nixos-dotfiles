@@ -1,9 +1,9 @@
 # zsh configuration
 { pkgs, config, options, lib, ... }:
 let
-  cfg = config.tyler-space.zsh;
+  cfg = config.tyler-space.tyler.zsh;
 in  {
-  options.tyler-space.zsh = {
+  options.tyler-space.tyler.zsh = {
     enable = lib.mkEnableOption "Enable zsh";
   };
 
