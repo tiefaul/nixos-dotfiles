@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
     ];
   
-  # Set jellyfin file system
+  # Set non-boot file system
   fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
     fsType = "ext4";
@@ -99,7 +99,6 @@
     isNormalUser = true;
     description = "Tyler";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
     shell = pkgs.zsh;
   };
 
@@ -114,6 +113,7 @@
     git
     nodejs_24
     python314
+    unzip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
