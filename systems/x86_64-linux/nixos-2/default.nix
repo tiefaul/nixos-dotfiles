@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
   
+  users.users.tyler = {
+    isNormalUser = true;
+    description = "Tyler";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
   # Set non-boot file system
   fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
@@ -26,14 +32,16 @@
     };
   };
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdb";
-  boot.loader.grub.useOSProber = true;
-
-  networking.hostName = "nixos-2"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.firewall.allowedTCPPorts = [ 80 8080 ];
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+    nodejs_24
+    python314
+    unzip
+  ];
 
   # Learning how to setup nginx with Matt
   services.nginx = let
@@ -60,6 +68,15 @@
         '';
       };
   };
+
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sdb";
+  boot.loader.grub.useOSProber = true;
+
+  networking.hostName = "nixos-2"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.firewall.allowedTCPPorts = [ 80 8080 ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -92,29 +109,8 @@
     variant = "";
   };
 
-  # Enable zsh to have it set as the login shell.
-  programs.zsh.enable = true;
-
-  users.users.tyler = {
-    isNormalUser = true;
-    description = "Tyler";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    nodejs_24
-    python314
-    unzip
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
