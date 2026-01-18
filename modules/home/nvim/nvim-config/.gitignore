@@ -1,0 +1,24 @@
+# ==============================
+# Neovim / NVChad generated files
+# ==============================
+
+# Runtime generated files
+plugin/
+spell/
+shada/
+swap/
+undo/
+backup/
+view/
+
+# Cache directories
+.cache/
+.nvchad/
+lua/.luarc.json
+
+# Plugin manager artifacts
+lazy-lock.json
+
+# LSP / tooling junk
+.mason/
+.lsp/
