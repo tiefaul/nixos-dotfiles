@@ -1,6 +1,6 @@
 # nvim configuration
 
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 let
   cfg = config.tyler-space.tyler.nvim;
 in {

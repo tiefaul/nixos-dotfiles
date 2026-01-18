@@ -32,6 +32,9 @@
     };
   };
 
+  # This is needed to run zsh in nvim.... not sure why.
+  programs.zsh.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -42,6 +45,7 @@
     python314
     unzip
     cargo
+    gcc15
   ];
 
   # Learning how to setup nginx with Matt
