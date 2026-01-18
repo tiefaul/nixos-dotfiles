@@ -41,6 +41,7 @@
     nodejs_24
     python314
     unzip
+    cargo
   ];
 
   # Learning how to setup nginx with Matt
