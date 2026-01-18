@@ -2,13 +2,13 @@
 
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
-  home.packages = with pkgs; [
-    python314
-  ];
+  home.packages = with pkgs; [];
 
   programs.home-manager.enable = true;
-  tyler-space.nvim.enable = true;
-  tyler-space.zsh.enable = true;
+  tyler-space.tyler = {
+    nvim.enable = true;
+    zsh.enable = true;
+  };
 
   home.stateVersion = "24.05";
 }
