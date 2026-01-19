@@ -5,15 +5,18 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-  
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
   users.users.tyler = {
     isNormalUser = true;
     description = "Tyler";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -22,9 +25,9 @@
     device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
     fsType = "ext4";
   };
-  
+
   # User groups
-  users.groups.media = {};
+  users.groups.media = { };
 
   # Modules
   tyler-space = {
@@ -50,30 +53,31 @@
   ];
 
   # Learning how to setup nginx with Matt
-  services.nginx = let
-  webroot = ../../../simple-website;
-  in
-  {
-    enable = false;
-    virtualHosts."nginx-demo" = {
+  services.nginx =
+    let
+      webroot = ../../../simple-website;
+    in
+    {
+      enable = false;
+      virtualHosts."nginx-demo" = {
         # Listen on the configured port (no TLS)
         listen = [
           {
             addr = "0.0.0.0";
             port = 8080;
-            ssl  = false;
+            ssl = false;
           }
         ];
 
         root = webroot;
         # Rough equivalent of your original logging behavior
         extraConfig = ''
-        location / {
-          try_files $uri $uri/ =404;
-        }
+          location / {
+            try_files $uri $uri/ =404;
+          }
         '';
       };
-  };
+    };
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -138,7 +142,10 @@
   # networking.firewall.enable = false;
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -148,4 +155,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 }
-

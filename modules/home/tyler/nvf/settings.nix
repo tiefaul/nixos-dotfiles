@@ -1,11 +1,101 @@
-vim = {
-  lsp = {
-    enable = true;
+{
+  vim = {
+    # Single line enables
+    telescope.enable = true;
+    autocomplete.nvim-cmp.enable = true;
+    git.enable = true;
+
+    # Binds
+    binds = {
+      whichKey = {
+        enable = true;
+      };
     };
 
-  theme = {
-    enable = true;
-    name = "gruvbox";
-    style = "dark";
+    # Key Mappings
+    keymaps = [
+      {
+        key = "<C-x>";
+        mode = "t";
+        silent = true;
+        action = "<C-\\><C-n>"; # use escape character `\` to exit the \
+        desc = "Exit terminal into normal mode.";
+      }
+    ];
+
+    # Visuals
+    visuals = {
+      indent-blankline = {
+        enable = true;
+      };
+      rainbow-delimiters = {
+        enable = true;
+      };
     };
+
+    # Enable LSP
+    lsp = {
+      enable = true;
+    };
+
+    # LSP server
+    languages = {
+      enableTreesitter = true;
+      nix.enable = true;
+      ts.enable = true;
+      rust.enable = true;
+      python.enable = true;
+    };
+
+    # Statusline settings
+    statusline.lualine = {
+      enable = true;
+      icons = {
+        enable = true;
+      };
+    };
+
+    # Theme settings
+    theme = {
+      enable = true;
+      name = "gruvbox";
+      style = "dark";
+    };
+
+    # Filetree settings
+    filetree = {
+      nvimTree = {
+        enable = true;
+        mappings = {
+          toggle = "<C-n>";
+        };
+      };
+    };
+
+    # Tabline settings
+    tabline = {
+      nvimBufferline = {
+        enable = true;
+        mappings = {
+          cycleNext = "<tab>";
+          closeCurrent = "<Leader>x";
+        };
+      };
+    };
+
+    # Terminal settings
+    terminal = {
+      toggleterm = {
+        enable = true;
+        mappings = {
+          open = "<Leader>z";
+        };
+        setupOpts = {
+          direction = "float";
+          enable_winbar = true;
+        };
+      };
+    };
+
+  };
 }
