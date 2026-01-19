@@ -74,6 +74,14 @@
     filetree = {
       nvimTree = {
         enable = true;
+        setupOpts = {
+          filters = {
+            git_ignored = true;
+          };
+          git = {
+            enable = true;
+          };
+        };
         mappings = {
           toggle = "<C-n>";
         };
