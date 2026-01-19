@@ -1,16 +1,21 @@
 # zsh configuration
-{ pkgs, config, options, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.tyler-space.tyler.zsh;
-in  {
+in
+{
   options.tyler-space.tyler.zsh = {
     enable = lib.mkEnableOption "Enable zsh";
   };
 
   config = lib.mkIf cfg.enable {
-     programs.zsh = {
-        enable = true;
-        autosuggestion = {
+    programs.zsh = {
+      enable = true;
+      autosuggestion = {
         enable = true;
       };
       syntaxHighlighting = {

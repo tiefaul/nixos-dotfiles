@@ -1,5 +1,5 @@
-{ pkgs, config, ... }: {
-
+{ pkgs, config, ... }:
+{
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
   home.packages = with pkgs; [ lazygit ];
