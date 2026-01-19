@@ -6,8 +6,9 @@
   programs.home-manager.enable = true;
 
   tyler-space.tyler = {
-    nvim.enable = true;
+    nvim.enable = false;
     zsh.enable = true;
+    nvf.enable = true;
   };
 
   home.stateVersion = "24.05";

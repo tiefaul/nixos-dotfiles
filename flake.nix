@@ -6,10 +6,10 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvf.url = "github:notashelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
+    snowfall-lib.url = "github:snowfall-lib/lib";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
