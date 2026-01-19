@@ -6,7 +6,6 @@
   programs.home-manager.enable = true;
 
   tyler-space.tyler = {
-    nvim.enable = false;
     zsh.enable = true;
     nvf.enable = true;
   };
