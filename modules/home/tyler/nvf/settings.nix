@@ -23,6 +23,14 @@
       }
     ];
 
+    # Diagnostics
+    diagnostics = {
+      enable = true;
+      config = {
+        virtual_text = true;
+      };
+    };
+
     # Visuals
     visuals = {
       indent-blankline = {
