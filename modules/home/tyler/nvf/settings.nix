@@ -54,7 +54,7 @@
       rust.enable = true;
       python.enable = true;
       html.enable = true;
-      go.enbale = true;
+      go.enable = true;
     };
 
     # Statusline settings
