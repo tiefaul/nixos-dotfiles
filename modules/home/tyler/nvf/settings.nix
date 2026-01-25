@@ -1,3 +1,7 @@
+{ lib, ... }:
+let
+  inherit (lib.generators) mkLuaInline;
+in
 {
   vim = {
     # Single line enables
@@ -11,7 +15,7 @@
         enable = true;
       };
     };
-    
+
     # Options
     options = {
       relativenumber = false;
@@ -33,6 +37,40 @@
         desc = "Toggle line number modes";
       }
     ];
+
+    # Autopairs
+    autopairs = {
+      nvim-autopairs = {
+        enable = true;
+      };
+    };
+
+    # Formatter
+    formatter = {
+      conform-nvim = {
+        enable = true;
+        setupOpts = {
+          format_on_save = { };
+          formatters_by_ft = {
+            nix = [
+              "nixfmt"
+            ];
+            lua = [
+              "stylua"
+            ];
+            css = [
+              "stylua"
+            ];
+            html = [
+              "stylua"
+            ];
+            yaml = [
+              "stylua"
+            ];
+          };
+        };
+      };
+    };
 
     # Diagnostics
     diagnostics = {
@@ -93,6 +131,11 @@
           };
           git = {
             enable = true;
+          };
+          actions = {
+            open_file = {
+              resize_window = true;
+            };
           };
         };
         mappings = {
