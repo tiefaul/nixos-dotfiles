@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
+  programs.home-manager.enable = true;
+  programs.claude-code.enable = false;
+
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
   home.packages = with pkgs; [
@@ -8,8 +11,6 @@
     stylua
     prettier
   ];
-
-  programs.home-manager.enable = true;
 
   tyler-space.tyler = {
     zsh.enable = true;

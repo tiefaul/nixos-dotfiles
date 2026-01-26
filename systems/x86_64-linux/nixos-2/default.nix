@@ -10,6 +10,9 @@
     ./hardware-configuration.nix
   ];
 
+  # This is needed to run zsh in nvim.... not sure why.
+  programs.zsh.enable = true;
+
   users.users.tyler = {
     isNormalUser = true;
     description = "Tyler";
@@ -36,9 +39,6 @@
     };
   };
 
-  # This is needed to run zsh in nvim.... not sure why.
-  programs.zsh.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -46,7 +46,6 @@
     wget
     git
     nodejs_24
-    python314
     unzip
     cargo
     gcc15
@@ -136,7 +135,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
