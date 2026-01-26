@@ -1,7 +1,3 @@
-{ lib, ... }:
-let
-  inherit (lib.generators) mkLuaInline;
-in
 {
   vim = {
     # Single line enables
