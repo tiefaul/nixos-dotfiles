@@ -1,23 +1,23 @@
 {
   inputs,
   bundlerEnv,
-  mkShell,
+  stdenv,
   ...
 }:
 let
   pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
   env = bundlerEnv {
     name = "levitatecold";
-    inherit (pkgs) ruby;
+    ruby = pkgs.ruby;
     gemfile = ./myblog/Gemfile;
     lockfile = ./myblog/Gemfile.lock;
     gemset = ./myblog/gemset.nix;
   };
 in
-mkShell {
+stdenv.mkDerivation {
+  name = "levitatecold";
   buildInputs = [
     env
-    pkgs.bundler
-    pkgs.ruby
+    pkgs.nodejs
   ];
 }
