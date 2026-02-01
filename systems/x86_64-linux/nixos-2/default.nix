@@ -49,6 +49,7 @@
     unzip
     cargo
     gcc15
+    bundix
   ];
 
   # Learning how to setup nginx with Matt

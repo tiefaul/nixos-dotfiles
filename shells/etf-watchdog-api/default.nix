@@ -1,8 +1,8 @@
-{ inputs, mkShell, ... }:
+{ inputs, ... }:
 let
   pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
 in
-mkShell {
+pkgs.mkShell {
   buildInputs = with pkgs; [
     python314
     uv
