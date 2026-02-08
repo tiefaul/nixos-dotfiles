@@ -1,0 +1,4 @@
+{
+  # Options
+  relativenumber = false;
+}

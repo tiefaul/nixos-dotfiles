@@ -1,0 +1,4 @@
+{
+  # Enable LSP
+  enable = true;
+}

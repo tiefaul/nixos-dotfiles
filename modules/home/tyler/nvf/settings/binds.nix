@@ -1,0 +1,6 @@
+{
+  # Binds
+  whichKey = {
+    enable = true;
+  };
+}
