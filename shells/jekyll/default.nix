@@ -1,6 +1,5 @@
-{ inputs, ... }:
+{ pkgs, ... }:
 let
-  pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
   env = pkgs.bundlerEnv {
     name = "levitatecold";
     ruby = pkgs.ruby;
