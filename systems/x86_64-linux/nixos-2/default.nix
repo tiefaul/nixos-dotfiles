@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
   ];
 
+  #-------------------------System settings-------------------------------------#
   # This is needed to run zsh in nvim.... not sure why.
   programs.zsh.enable = true;
 
@@ -23,21 +24,8 @@
     shell = pkgs.zsh;
   };
 
-  # Set non-boot file system
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
-    fsType = "ext4";
-  };
-
   # User groups
   users.groups.media = { };
-
-  # Modules
-  tyler-space = {
-    services = {
-      jellyfin.enable = false; # port 8096
-    };
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -51,6 +39,16 @@
     gcc15
     bundix
   ];
+
+  # -------------------------Services-----------------------------------------#
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
   # Learning how to setup nginx with Matt
   services.nginx =
@@ -79,21 +77,41 @@
       };
     };
 
+  # Modules
+  tyler-space = {
+    services = {
+      jellyfin.enable = false; # port 8096
+    };
+  };
+
+  #------------------------Networking-------------------------------------#
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+
+  # Or disable the firewall altogether:
+  networking.firewall.enable = false;
+
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary:
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  #------------------------Others----------------------------------------------#
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos-2"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.firewall.allowedTCPPorts = [ 80 8080 ];
+  networking.networkmanager.enable = true; # Enable networking
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Set non-boot file system
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/2fbe3643-674f-463e-8c39-f9ee61809da3";
+    fsType = "ext4";
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -113,12 +131,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -129,17 +141,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # Enable flakes
   nix.settings.experimental-features = [
