@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   vim = {
     autopairs = import ./settings/autopairs.nix;
@@ -16,6 +17,6 @@
     languages = import ./settings/languages.nix;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
-    git.enable = true;
+    git.enable = false;
   };
 }

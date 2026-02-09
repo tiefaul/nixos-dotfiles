@@ -3,7 +3,7 @@
   toggleterm = {
     enable = true;
     mappings = {
-      open = "<Leader>z";
+      open = "<Leader>h";
     };
     setupOpts = {
       direction = "horizontal";
