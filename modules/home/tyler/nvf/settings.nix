@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   vim = {
     autopairs = import ./settings/autopairs.nix;
