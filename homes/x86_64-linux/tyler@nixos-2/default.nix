@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   programs.home-manager.enable = true;
-  programs.claude-code.enable = false;
 
   home.username = "tyler";
   home.homeDirectory = "/home/tyler";
