@@ -6,4 +6,7 @@
   rainbow-delimiters = {
     enable = true;
   };
+  nvim-web-devicons = {
+    enable = true;
+  };
 }
