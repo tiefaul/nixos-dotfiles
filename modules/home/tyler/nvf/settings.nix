@@ -15,6 +15,7 @@
     visuals = import ./settings/visuals.nix;
     languages = import ./settings/languages.nix;
     comments = import ./settings/comments.nix;
+    luaConfigRC = import ./settings/lua.nix;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
     git.enable = false;
