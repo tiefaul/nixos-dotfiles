@@ -8,7 +8,7 @@ pkgs.mkShell {
     uv
   ];
   shellHook = ''
-    echo "###########################"                    
+    echo "###########################"
     echo "Etf-Watchdog shell launched"
     echo "###########################"
     cd ~/projects/etf-watchdog-api/
