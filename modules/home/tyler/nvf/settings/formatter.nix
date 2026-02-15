@@ -20,6 +20,12 @@
         yaml = [
           "stylua"
         ];
+        go = [
+          "gofmt"
+        ];
+        markdown = [
+          "markdownfmt"
+        ];
       };
     };
   };
