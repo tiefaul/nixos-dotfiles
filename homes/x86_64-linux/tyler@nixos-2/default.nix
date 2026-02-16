@@ -14,6 +14,7 @@
   tyler-space.tyler = {
     zsh.enable = true;
     nvf.enable = true;
+    opencode.enable = true;
   };
 
   home.stateVersion = "25.11";
