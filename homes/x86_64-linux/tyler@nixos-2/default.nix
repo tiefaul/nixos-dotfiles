@@ -9,6 +9,7 @@
     nixfmt
     stylua
     prettier
+    bundix
   ];
 
   tyler-space.tyler = {
