@@ -9,6 +9,7 @@
     nixfmt
     stylua
     prettier
+    fixjson
   ];
 
   tyler-space.tyler = {

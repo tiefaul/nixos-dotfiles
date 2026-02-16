@@ -23,8 +23,8 @@
         go = [
           "gofmt"
         ];
-        markdown = [
-          "markdownfmt"
+        json = [
+          "fixjson"
         ];
       };
     };
