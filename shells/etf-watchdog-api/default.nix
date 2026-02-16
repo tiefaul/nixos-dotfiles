@@ -1,17 +1,44 @@
-{ inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
-  pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+  workspace = inputs.uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
+
+  overlay = workspace.mkPyprojectOverlay {
+    sourcePreference = "wheel";
+  };
+
+  python = pkgs.python314;
+  pythonSet =
+    (pkgs.callPackage inputs.pyproject-nix.build.packages {
+      inherit python;
+    }).overrideScope
+      (
+        lib.composeManyExtensions [
+          inputs.pyproject-build-systems.overlays.wheel
+          overlay
+        ]
+      );
+
+  virtualenv = pythonSet.mkVirtualEnv "etf-watchdog-api" workspace.deps.default;
+
 in
 pkgs.mkShell {
-  buildInputs = with pkgs; [
-    python314
-    uv
+  packages = [
+    virtualenv
+    pkgs.uv
   ];
+
+  env = {
+    UV_NO_SYNC = "1";
+    UV_PYTHON = pythonSet.python.interpreter;
+    UV_PYTHON_DOWNLOADS = "never";
+  };
+
   shellHook = ''
-    echo "###########################"
-    echo "Etf-Watchdog shell launched"
-    echo "###########################"
-    cd ~/projects/etf-watchdog-api/
-    uv sync
+    unset PYTHONPATH
   '';
 }

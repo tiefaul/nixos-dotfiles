@@ -16,4 +16,5 @@
   markdown.enable = true;
   ruby.enable = true;
   sql.enable = true;
+  tailwind.enable = true;
 }
