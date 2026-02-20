@@ -9,7 +9,11 @@
     nixfmt
     stylua
     prettier
+<<<<<<< HEAD
     bundix
+=======
+    fixjson
+>>>>>>> f941cdd1a13033bec9edf6c1d35ddf27544d060d
   ];
 
   tyler-space.tyler = {
