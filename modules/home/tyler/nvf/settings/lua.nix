@@ -1,6 +1,6 @@
 {
   listchards = ''
-    vim.opt.listchars = {space = '•'}
+    vim.opt.listchars = {lead = '•', trail = '•'}
     vim.cmd('set list')
   '';
 }
