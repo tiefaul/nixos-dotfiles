@@ -30,6 +30,7 @@ pkgs.mkShell {
   packages = [
     virtualenv
     pkgs.uv
+    pkgs.docker
   ];
 
   env = {
